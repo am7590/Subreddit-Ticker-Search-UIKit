@@ -14,8 +14,6 @@
 		E65A1A7727AEEE7B00D5209F /* CoreDataDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E65A1A7527AEEE7B00D5209F /* CoreDataDemo.xcdatamodeld */; };
 		E65A1A7927AEEE7D00D5209F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E65A1A7827AEEE7D00D5209F /* Assets.xcassets */; };
 		E65A1A7C27AEEE7D00D5209F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E65A1A7A27AEEE7D00D5209F /* LaunchScreen.storyboard */; };
-		E65A1A8527AEF00D00D5209F /* Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A1A8327AEF00D00D5209F /* Entity+CoreDataClass.swift */; };
-		E65A1A8627AEF00D00D5209F /* Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A1A8427AEF00D00D5209F /* Entity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +26,6 @@
 		E65A1A7827AEEE7D00D5209F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E65A1A7B27AEEE7D00D5209F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E65A1A7D27AEEE7D00D5209F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E65A1A8327AEF00D00D5209F /* Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E65A1A8427AEF00D00D5209F /* Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +74,6 @@
 		E65A1A8827AEF01F00D5209F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E65A1A8327AEF00D00D5209F /* Entity+CoreDataClass.swift */,
-				E65A1A8427AEF00D00D5209F /* Entity+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,11 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E65A1A8627AEF00D00D5209F /* Entity+CoreDataProperties.swift in Sources */,
 				E65A1A7127AEEE7B00D5209F /* ViewController.swift in Sources */,
 				E65A1A7727AEEE7B00D5209F /* CoreDataDemo.xcdatamodeld in Sources */,
 				E65A1A6D27AEEE7B00D5209F /* AppDelegate.swift in Sources */,
-				E65A1A8527AEF00D00D5209F /* Entity+CoreDataClass.swift in Sources */,
 				E65A1A6F27AEEE7B00D5209F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

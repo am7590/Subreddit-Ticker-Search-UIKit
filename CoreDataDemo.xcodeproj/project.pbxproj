@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2936FFE927B325720015F5AC /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936FFE827B325720015F5AC /* PopupViewController.swift */; };
 		E65A1A6D27AEEE7B00D5209F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A1A6C27AEEE7B00D5209F /* AppDelegate.swift */; };
 		E65A1A6F27AEEE7B00D5209F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A1A6E27AEEE7B00D5209F /* SceneDelegate.swift */; };
 		E65A1A7127AEEE7B00D5209F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A1A7027AEEE7B00D5209F /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2936FFE827B325720015F5AC /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		E65A1A6927AEEE7B00D5209F /* CoreDataDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65A1A6C27AEEE7B00D5209F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E65A1A6E27AEEE7B00D5209F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				E65A1A6C27AEEE7B00D5209F /* AppDelegate.swift */,
 				E65A1A6E27AEEE7B00D5209F /* SceneDelegate.swift */,
 				E65A1A7027AEEE7B00D5209F /* ViewController.swift */,
+				2936FFE827B325720015F5AC /* PopupViewController.swift */,
 				E65A1A7227AEEE7B00D5209F /* Main.storyboard */,
 				E65A1A7827AEEE7D00D5209F /* Assets.xcassets */,
 				E65A1A7A27AEEE7D00D5209F /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2936FFE927B325720015F5AC /* PopupViewController.swift in Sources */,
 				E65A1A7127AEEE7B00D5209F /* ViewController.swift in Sources */,
 				E65A1A7727AEEE7B00D5209F /* CoreDataDemo.xcdatamodeld in Sources */,
 				E65A1A6D27AEEE7B00D5209F /* AppDelegate.swift in Sources */,

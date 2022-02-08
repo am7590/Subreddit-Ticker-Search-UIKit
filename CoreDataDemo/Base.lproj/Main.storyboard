@@ -20,19 +20,20 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHZ-SZ-n6m">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                                         <items>
                                             <navigationItem title="Title" id="kIn-gk-znR">
                                                 <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="m40-fx-Sjc">
                                                     <connections>
                                                         <action selector="addTapped:" destination="BYZ-38-t0r" id="HxO-9f-ONV"/>
+                                                        <segue destination="R9G-SA-xHD" kind="show" identifier="InputVCToDisplayVC" id="nrN-4X-qkH"/>
                                                     </connections>
                                                 </barButtonItem>
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tbV-8K-gaw">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="808"/>
+                                        <rect key="frame" x="0.0" y="66" width="414" height="786"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonCell" id="0gK-8F-Lvp">
@@ -63,6 +64,7 @@
                             <constraint firstItem="eII-ZV-gfP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eze-9p-pbA"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7Ka-zv-gcK"/>
                     <connections>
                         <outlet property="tableView" destination="tbV-8K-gaw" id="fqv-HR-rgT"/>
                     </connections>
@@ -70,6 +72,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-600" y="41"/>
+        </scene>
+        <!--Popup View Controller-->
+        <scene sceneID="6D2-AQ-0Qs">
+            <objects>
+                <viewController id="R9G-SA-xHD" customClass="PopupViewController" customModule="CoreDataDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4DZ-to-Y1n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fmp-Bz-Pye">
+                                <rect key="frame" x="107" y="156" width="200" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3e-Dc-Y33">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I2S-df-eUQ">
+                                        <rect key="frame" x="0.0" y="20.5" width="200" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FY-20-VIB">
+                                        <rect key="frame" x="0.0" y="54.5" width="200" height="45.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Return"/>
+                                        <connections>
+                                            <action selector="returnButton:" destination="R9G-SA-xHD" eventType="touchUpInside" id="y6f-FB-2A3"/>
+                                            <segue destination="JJZ-7v-jnp" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="dhu-Jk-O8n"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="MRS-Um-sCc"/>
+                                    <constraint firstAttribute="height" constant="100" id="YzI-We-UWh"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qbt-9g-wXD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qbt-9g-wXD" firstAttribute="bottom" secondItem="Fmp-Bz-Pye" secondAttribute="bottom" constant="552" id="GzH-Wk-6Hl"/>
+                            <constraint firstItem="Fmp-Bz-Pye" firstAttribute="leading" secondItem="qbt-9g-wXD" secondAttribute="leading" constant="107" id="bqh-a2-7XA"/>
+                            <constraint firstItem="qbt-9g-wXD" firstAttribute="trailing" secondItem="Fmp-Bz-Pye" secondAttribute="trailing" constant="107" id="p7N-xE-t9g"/>
+                            <constraint firstItem="Fmp-Bz-Pye" firstAttribute="top" secondItem="qbt-9g-wXD" secondAttribute="top" constant="156" id="sNF-mS-aWk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZtP-oG-pbo"/>
+                    <connections>
+                        <outlet property="subredditTextField" destination="I2S-df-eUQ" id="ox4-6u-xam"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t7N-NX-TMY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="JJZ-7v-jnp" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="185.50724637681162" y="40.848214285714285"/>
         </scene>
     </scenes>
     <resources>

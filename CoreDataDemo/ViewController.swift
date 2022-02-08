@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {}
+
+    
     // Reference to managed object context (Core data)
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -23,7 +26,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
-    
+        // Bar Button Items
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+
+        navigationItem.rightBarButtonItems = [add]
+        
+        
+        // TableView
         tableView.dataSource = self
         tableView.delegate = self
         

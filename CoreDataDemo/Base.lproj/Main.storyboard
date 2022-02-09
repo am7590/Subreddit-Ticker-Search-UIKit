@@ -82,7 +82,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fmp-Bz-Pye">
-                                <rect key="frame" x="107" y="156" width="200" height="100"/>
+                                <rect key="frame" x="107" y="156" width="200" height="252"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3e-Dc-Y33">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
@@ -96,7 +96,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FY-20-VIB">
-                                        <rect key="frame" x="0.0" y="54.5" width="200" height="45.5"/>
+                                        <rect key="frame" x="0.0" y="54.5" width="200" height="197.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Return"/>
                                         <connections>
@@ -105,16 +105,12 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="MRS-Um-sCc"/>
-                                    <constraint firstAttribute="height" constant="100" id="YzI-We-UWh"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qbt-9g-wXD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qbt-9g-wXD" firstAttribute="bottom" secondItem="Fmp-Bz-Pye" secondAttribute="bottom" constant="552" id="GzH-Wk-6Hl"/>
+                            <constraint firstItem="qbt-9g-wXD" firstAttribute="bottom" secondItem="Fmp-Bz-Pye" secondAttribute="bottom" constant="400" id="GzH-Wk-6Hl"/>
                             <constraint firstItem="Fmp-Bz-Pye" firstAttribute="leading" secondItem="qbt-9g-wXD" secondAttribute="leading" constant="107" id="bqh-a2-7XA"/>
                             <constraint firstItem="qbt-9g-wXD" firstAttribute="trailing" secondItem="Fmp-Bz-Pye" secondAttribute="trailing" constant="107" id="p7N-xE-t9g"/>
                             <constraint firstItem="Fmp-Bz-Pye" firstAttribute="top" secondItem="qbt-9g-wXD" secondAttribute="top" constant="156" id="sNF-mS-aWk"/>

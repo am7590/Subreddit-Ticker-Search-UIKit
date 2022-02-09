@@ -10,8 +10,10 @@ import CoreData
 
 class ViewController: UIViewController {
     
+    // Table view
     @IBOutlet weak var tableView: UITableView!
     
+    // Important- exit detail view
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {}
 
     
@@ -36,7 +38,14 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        // Connect from PopupViewController
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        
         // Get items from Core Data
+        fetchPeople()
+    }
+    
+    @objc func loadList(notification: NSNotification){
         fetchPeople()
     }
     

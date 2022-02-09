@@ -195,6 +195,62 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [action])
         
     }
+    
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action = UIContextualAction(style: .normal, title: "Edit") { (action, view, completionHandler) in
+            
+            // Selected Person
+            let person = self.items![indexPath.row]
+            
+            // Create alert
+            let alert = UIAlertController(title: "Edit Person", message: "Edit name:", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: { (subredditField) in
+                subredditField.text = person.name
+                subredditField.placeholder = "Subreddit"
+            })
+            alert.addTextField(configurationHandler: { (postsField) in
+                postsField.text = String(person.age)
+                postsField.placeholder = "Posts Searched:"
+            })
+            
+            // Config button handler
+            let saveButton = UIAlertAction(title: "Save", style: .default) { (action) in
+                
+                // Get textfield for alert
+                let subredditField = alert.textFields![0]
+                let postsField = alert.textFields![1]
+                
+                // Edit name property of person object
+                person.name = subredditField.text
+                let personAge:Int64 = Int64(postsField.text ?? "0") ?? 0
+                person.age = personAge
+                
+                // Save data
+                do {
+                    try self.context.save()
+                } catch {
+                    
+                }
+                
+                // Re-fetch data
+                self.fetchPeople()
+            }
+            
+            // Add button
+            alert.addAction(saveButton)
+            
+            // Show alert
+            self.present(alert, animated: true, completion: nil)
+            
+            
+        }
+            
+        
+        return UISwipeActionsConfiguration(actions: [action])
+        
+    }
 
 
 

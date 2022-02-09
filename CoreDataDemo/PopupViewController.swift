@@ -15,6 +15,10 @@ class PopupViewController: UIViewController {
     // Input for which subreddit to search
     @IBOutlet weak var subredditTextField: UITextField!
     
+    // Input for # of posts to search
+    @IBOutlet weak var postNumberTextField: UITextField!
+    
+    
     let v = ViewController()
     
     // Returns to 
@@ -24,10 +28,14 @@ class PopupViewController: UIViewController {
         print("\n\n")
         
         
+        // Hot posts: subreddit, # of posts https://flask-service.bg7bq3bnlj1de.us-east-1.cs.amazonlightsail.com/hot/?subreddit=wallstreetbets&hot=100
+        // New posts: subreddit, # of posts https://flask-service.bg7bq3bnlj1de.us-east-1.cs.amazonlightsail.com/new/?subreddit=pennystocks&new=50
+        // Custom posts: subreddit, # of hours https://flask-service.bg7bq3bnlj1de.us-east-1.cs.amazonlightsail.com/subreddit-hour/?subreddit=stocks&hours=24
+        
         // Create person object
         let newPerson = Person(context: self.context)
         newPerson.name = subredditTextField.text!
-        newPerson.age = 90
+        newPerson.age = Int64(postNumberTextField.text!) ?? 0
         newPerson.gender = "Male"
                 
         // Save the data
@@ -37,17 +45,29 @@ class PopupViewController: UIViewController {
             
         }
         
-        // Refetch data
-        // Fetch data from core data
-        do {
-        
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        // Reload data in ViewController
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
 
-            
-        } catch {
-            
+    }
+    
+    
+    // Segmented Control
+    @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
+        
+        if sender.selectedSegmentIndex == 0 {
+            // Selected new
+            view.backgroundColor = .systemBackground
         }
         
+        else if sender.selectedSegmentIndex == 1 {
+            // Selected hot
+            view.backgroundColor = .gray
+        }
+        
+        else if sender.selectedSegmentIndex == 2 {
+            // Selected custom
+            view.backgroundColor = .darkGray
+        }
     }
     
  

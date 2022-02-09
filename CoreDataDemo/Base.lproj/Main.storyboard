@@ -84,7 +84,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fmp-Bz-Pye">
                                 <rect key="frame" x="107" y="156" width="200" height="252"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3e-Dc-Y33">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Subreddit:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3e-Dc-Y33">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -95,10 +95,21 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts to search:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0K-wl-MeI">
+                                        <rect key="frame" x="0.0" y="54.5" width="200" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4XK-1P-0cj">
+                                        <rect key="frame" x="0.0" y="75" width="200" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FY-20-VIB">
-                                        <rect key="frame" x="0.0" y="54.5" width="200" height="197.5"/>
+                                        <rect key="frame" x="0.0" y="109" width="200" height="143"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Return"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go"/>
                                         <connections>
                                             <action selector="returnButton:" destination="R9G-SA-xHD" eventType="touchUpInside" id="y6f-FB-2A3"/>
                                             <segue destination="JJZ-7v-jnp" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="dhu-Jk-O8n"/>
@@ -106,18 +117,34 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m05-sd-RDI">
+                                <rect key="frame" x="20" y="20" width="374" height="32"/>
+                                <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                <segments>
+                                    <segment title="New"/>
+                                    <segment title="Hot"/>
+                                    <segment title="Custom"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didChangeSegment:" destination="R9G-SA-xHD" eventType="valueChanged" id="VRf-eI-Cgu"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qbt-9g-wXD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="m05-sd-RDI" firstAttribute="top" secondItem="qbt-9g-wXD" secondAttribute="top" constant="20" id="2bS-cs-Mj5"/>
                             <constraint firstItem="qbt-9g-wXD" firstAttribute="bottom" secondItem="Fmp-Bz-Pye" secondAttribute="bottom" constant="400" id="GzH-Wk-6Hl"/>
                             <constraint firstItem="Fmp-Bz-Pye" firstAttribute="leading" secondItem="qbt-9g-wXD" secondAttribute="leading" constant="107" id="bqh-a2-7XA"/>
+                            <constraint firstItem="m05-sd-RDI" firstAttribute="leading" secondItem="4DZ-to-Y1n" secondAttribute="leadingMargin" id="giU-Lq-PrB"/>
+                            <constraint firstItem="m05-sd-RDI" firstAttribute="centerX" secondItem="Fmp-Bz-Pye" secondAttribute="centerX" id="kpE-PI-r8F"/>
                             <constraint firstItem="qbt-9g-wXD" firstAttribute="trailing" secondItem="Fmp-Bz-Pye" secondAttribute="trailing" constant="107" id="p7N-xE-t9g"/>
                             <constraint firstItem="Fmp-Bz-Pye" firstAttribute="top" secondItem="qbt-9g-wXD" secondAttribute="top" constant="156" id="sNF-mS-aWk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZtP-oG-pbo"/>
                     <connections>
+                        <outlet property="postNumberTextField" destination="4XK-1P-0cj" id="eZv-JR-SuD"/>
                         <outlet property="subredditTextField" destination="I2S-df-eUQ" id="ox4-6u-xam"/>
                     </connections>
                 </viewController>
@@ -129,6 +156,9 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

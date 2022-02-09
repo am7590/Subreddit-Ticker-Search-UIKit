@@ -122,7 +122,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             // Get person from array; set label
             let person = self.items![indexPath.row]
             
-            cell.textLabel?.text = person.name
+            let cellText:String = person.name! + "\t\t\t" + String(person.age) + " posts searched"
+            
+            cell.textLabel?.text = cellText
             
             return cell
     }

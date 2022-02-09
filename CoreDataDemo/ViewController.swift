@@ -28,10 +28,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
+        // Enable for better navigation bar
         // Bar Button Items
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        //let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
 
-        navigationItem.rightBarButtonItems = [add]
+        //navigationItem.rightBarButtonItems = [add]
         
         
         // TableView
@@ -131,42 +132,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // Selected Person
+        // Set up detail view controller
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        
+        // Get person
         let person = self.items![indexPath.row]
         
-        // Create alert
-        let alert = UIAlertController(title: "Edit Person", message: "Edit name:", preferredStyle: .alert)
-        alert.addTextField()
+        // Edit labels
+        vc?.subredditText = person.name ?? ""
+        vc?.postsSearchedText = String(person.age)
+        vc?.queryText = String()
         
-        let textfield = alert.textFields![0]
-        textfield.text = person.name
-        
-        // Config button handler
-        let saveButton = UIAlertAction(title: "Save", style: .default) { (action) in
-            
-            // Get textfield for alert
-            let textfield = alert.textFields![0]
-            
-            // Edit name property of person object
-            person.name = textfield.text
-            
-            // Save data
-            do {
-                try self.context.save()
-            } catch {
-                
-            }
-            
-            // Re-fetch data
-            self.fetchPeople()
-            
-        }
-        
-        // Add button
-        alert.addAction(saveButton)
-        
-        // Show alert
-        self.present(alert, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

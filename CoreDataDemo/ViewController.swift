@@ -23,27 +23,49 @@ class ViewController: UIViewController {
     // TableView Data
     var items:[Person]?
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+    }
+    
     override func viewDidLoad() {
+    
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         
         // Enable for better navigation bar
         // Bar Button Items
-        //let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-
-        //navigationItem.rightBarButtonItems = [add]
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToPopupView))
+        navigationItem.rightBarButtonItems = [add]
         
         
         // TableView
         tableView.dataSource = self
         tableView.delegate = self
         
+        
         // Connect from PopupViewController
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         
         // Get items from Core Data
         fetchPeople()
+    }
+    
+    @objc func goToPopupView() {
+        // Set up detail view controller
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PopupViewController") as! PopupViewController
+        // guard let navController = self.navigationController else {return}
+        // navController.pushViewController(vc, animated: true)
+        
+        self.present(vc, animated: true, completion: nil)
+        
+        
     }
     
     @objc func loadList(notification: NSNotification){
@@ -68,41 +90,7 @@ class ViewController: UIViewController {
         
     }
 
-    @IBAction func addTapped(_ sender: Any) {
-        
-        // Create alert
-        let alert = UIAlertController(title: "Add Person", message: "What is their name?", preferredStyle: .alert)
-        alert.addTextField()
-        
-        // Configure button handler
-        let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
-            
-            // Get texfield for alert
-            let textfield = alert.textFields![0]
-            
-            // Create person object
-            let newPerson = Person(context: self.context)
-            newPerson.name = textfield.text
-            newPerson.age = 90
-            newPerson.gender = "Male"
-                    
-            // Save the data
-            do {
-                try  self.context.save()
-            } catch {
-                
-            }
-            
-            // Refetch data
-            self.fetchPeople()
-        }
-        
-        // Add button
-        alert.addAction(submitButton)
-        
-        // Display alert
-        self.present(alert, animated: true, completion: nil)
-    }
+
     
 }
 
@@ -144,6 +132,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         vc?.postsSearchedText = String(person.age)
         vc?.queryText = String()
         vc?.typeSearch = person.gender ?? ""
+        
+        
+
         
         self.navigationController?.pushViewController(vc!, animated: true)
     }
@@ -193,6 +184,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 postsField.text = String(person.age)
                 postsField.placeholder = "Posts Searched:"
             })
+            alert.addTextField(configurationHandler: { (searchType) in
+                searchType.text = person.gender
+                searchType.placeholder = "Search Type:"
+            })
             
             // Config button handler
             let saveButton = UIAlertAction(title: "Save", style: .default) { (action) in
@@ -200,11 +195,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 // Get textfield for alert
                 let subredditField = alert.textFields![0]
                 let postsField = alert.textFields![1]
+                let searchTypeField = alert.textFields![2]
                 
                 // Edit name property of person object
                 person.name = subredditField.text
                 let personAge:Int64 = Int64(postsField.text ?? "0") ?? 0
                 person.age = personAge
+                
+                // Update search type
+                person.gender = searchTypeField.text
+                
                 
                 // Save data
                 do {

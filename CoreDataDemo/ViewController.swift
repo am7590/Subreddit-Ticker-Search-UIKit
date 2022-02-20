@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     // Important- exit detail view
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {}
-
+    
     
     // Reference to managed object context (Core data)
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -123,7 +123,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             // Get person from array; set label
             let person = self.items![indexPath.row]
             
-            let cellText:String = person.name! + "\t\t\t" + String(person.age) + " posts searched"
+            
+            let cellText:String = person.name! + "\t  "  + String(person.age) +  " " + person.gender! + " posts searched"
             
             cell.textLabel?.text = cellText
             
@@ -142,6 +143,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         vc?.subredditText = person.name ?? ""
         vc?.postsSearchedText = String(person.age)
         vc?.queryText = String()
+        vc?.typeSearch = person.gender ?? ""
         
         self.navigationController?.pushViewController(vc!, animated: true)
     }

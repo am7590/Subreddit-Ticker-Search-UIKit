@@ -20,6 +20,10 @@ class PopupViewController: UIViewController {
     
     
     let v = ViewController()
+
+    // Search new or hot posts
+    var newPosts : Bool = true
+    
     
     // Returns to 
     @IBAction func returnButton(_ sender: Any) {
@@ -33,10 +37,11 @@ class PopupViewController: UIViewController {
         let newPerson = Person(context: self.context)
         newPerson.name = subredditTextField.text!
         newPerson.age = Int64(postNumberTextField.text!) ?? 0
-        newPerson.gender = "Male"
+        newPerson.gender = newPosts ? "New" : "Hot"
                 
         // Save the data
         do {
+            
             try  self.context.save()
         } catch {
             
@@ -52,13 +57,12 @@ class PopupViewController: UIViewController {
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0 {
+            newPosts = true
             // Selected new
-            view.backgroundColor = .systemBackground
         }
         
         else if sender.selectedSegmentIndex == 1 {
-            // Selected hot
-            view.backgroundColor = .gray
+            newPosts = false
         }
         
         else if sender.selectedSegmentIndex == 2 {

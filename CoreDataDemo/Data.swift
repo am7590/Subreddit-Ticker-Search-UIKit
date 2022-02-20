@@ -66,7 +66,7 @@ extension Data {
 
                    // Sort list of ticker objects
                    self.tickerObjects = self.tickerObjects.sorted(by: {$0.frequency>$1.frequency})
-                   print(self.tickerObjects)
+                   //print(self.tickerObjects)
 
                    // Get largest frequency and update list of objects
                    let largest : Int = self.tickerObjects[0].frequency
@@ -86,7 +86,7 @@ extension Data {
                    self.dataHasLoaded = true
                    
                    output = self.tickerObjects
-                   print(self.tickerObjects)
+                   //print(self.tickerObjects)
                    
                } catch {
                    self.dataHasLoaded = false

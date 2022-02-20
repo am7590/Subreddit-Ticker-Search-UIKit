@@ -16,44 +16,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="bqf-25-qWs">
-                                <rect key="frame" x="5" y="44" width="400" height="145.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="bqf-25-qWs">
+                                <rect key="frame" x="5" y="44" width="350" height="720"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subreddit Searched:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKc-CV-7eR">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Subreddit Searched:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKc-CV-7eR">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="197"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Search: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqb-He-SRN">
+                                        <rect key="frame" x="0.0" y="198" width="123.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts Searched:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ow-9d-Sq9">
-                                        <rect key="frame" x="0.0" y="62.5" width="400" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="219.5" width="123.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IpW-wK-Z5X">
-                                        <rect key="frame" x="0.0" y="125" width="400" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Loading JSON data..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vte-2J-Brf">
+                                        <rect key="frame" x="0.0" y="241" width="350" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="nll-go-Nxo"/>
+                                            <constraint firstAttribute="width" constant="350" id="pLO-Ox-bPh"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAC-2J-6W7" customClass="PieChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="370" width="350" height="350"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="350" id="CcR-h0-qSO"/>
+                                            <constraint firstAttribute="width" constant="350" id="wD7-kD-RUj"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="arf-pA-t8T"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YVr-I4-jV1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bqf-25-qWs" firstAttribute="leading" secondItem="YVr-I4-jV1" secondAttribute="leading" constant="5" id="Sn2-1L-iio"/>
-                            <constraint firstItem="bqf-25-qWs" firstAttribute="top" secondItem="YVr-I4-jV1" secondAttribute="top" id="hfo-wA-qpc"/>
+                            <constraint firstItem="bqf-25-qWs" firstAttribute="top" secondItem="YVr-I4-jV1" secondAttribute="top" id="kzt-6i-2qa"/>
+                            <constraint firstItem="YVr-I4-jV1" firstAttribute="bottom" secondItem="bqf-25-qWs" secondAttribute="bottom" constant="98" id="umY-wh-g1H"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pieView" destination="PAC-2J-6W7" id="UGi-B4-A3W"/>
                         <outlet property="postsSearched" destination="2ow-9d-Sq9" id="3hF-ee-u0D"/>
-                        <outlet property="query" destination="IpW-wK-Z5X" id="aIc-f8-PGF"/>
+                        <outlet property="query" destination="vte-2J-Brf" id="GOj-h6-X6J"/>
                         <outlet property="subreddit" destination="SKc-CV-7eR" id="CKq-iG-PxL"/>
+                        <outlet property="typeOfSearch" destination="Uqb-He-SRN" id="W2G-dr-ob1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmd-ux-mKi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -230,6 +249,9 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

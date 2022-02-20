@@ -13,6 +13,9 @@
 		2936FFEF27B397110015F5AC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936FFEE27B397110015F5AC /* Data.swift */; };
 		2936FFF127B397600015F5AC /* TickerStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936FFF027B397600015F5AC /* TickerStruct.swift */; };
 		2936FFF327B3979D0015F5AC /* APIStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936FFF227B3979D0015F5AC /* APIStruct.swift */; };
+		2951A61B27C1C29900F62C2C /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 2951A61A27C1C29900F62C2C /* Charts */; };
+		2951A61D27C1C39500F62C2C /* RedditParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951A61C27C1C39500F62C2C /* RedditParser.swift */; };
+		2951A61F27C1C44100F62C2C /* NSUIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951A61E27C1C44100F62C2C /* NSUIColor+Hex.swift */; };
 		E65A1A6D27AEEE7B00D5209F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A1A6C27AEEE7B00D5209F /* AppDelegate.swift */; };
 		E65A1A6F27AEEE7B00D5209F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A1A6E27AEEE7B00D5209F /* SceneDelegate.swift */; };
 		E65A1A7127AEEE7B00D5209F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A1A7027AEEE7B00D5209F /* ViewController.swift */; };
@@ -29,6 +32,8 @@
 		2936FFEE27B397110015F5AC /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		2936FFF027B397600015F5AC /* TickerStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerStruct.swift; sourceTree = "<group>"; };
 		2936FFF227B3979D0015F5AC /* APIStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStruct.swift; sourceTree = "<group>"; };
+		2951A61C27C1C39500F62C2C /* RedditParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditParser.swift; sourceTree = "<group>"; };
+		2951A61E27C1C44100F62C2C /* NSUIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSUIColor+Hex.swift"; sourceTree = "<group>"; };
 		E65A1A6927AEEE7B00D5209F /* CoreDataDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E65A1A6C27AEEE7B00D5209F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E65A1A6E27AEEE7B00D5209F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2951A61B27C1C29900F62C2C /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +82,9 @@
 				E65A1A7027AEEE7B00D5209F /* ViewController.swift */,
 				2936FFEC27B38D450015F5AC /* DetailViewController.swift */,
 				2936FFE827B325720015F5AC /* PopupViewController.swift */,
+				2951A61E27C1C44100F62C2C /* NSUIColor+Hex.swift */,
 				2936FFEE27B397110015F5AC /* Data.swift */,
+				2951A61C27C1C39500F62C2C /* RedditParser.swift */,
 				2936FFF227B3979D0015F5AC /* APIStruct.swift */,
 				2936FFF027B397600015F5AC /* TickerStruct.swift */,
 				2936FFEA27B38C840015F5AC /* TableViewCell.swift */,
@@ -112,6 +120,9 @@
 			dependencies = (
 			);
 			name = CoreDataDemo;
+			packageProductDependencies = (
+				2951A61A27C1C29900F62C2C /* Charts */,
+			);
 			productName = CoreDataDemo;
 			productReference = E65A1A6927AEEE7B00D5209F /* CoreDataDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -140,6 +151,9 @@
 				Base,
 			);
 			mainGroup = E65A1A6027AEEE7B00D5209F;
+			packageReferences = (
+				2951A61927C1C29900F62C2C /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = E65A1A6A27AEEE7B00D5209F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -173,7 +187,9 @@
 				E65A1A7727AEEE7B00D5209F /* CoreDataDemo.xcdatamodeld in Sources */,
 				2936FFEB27B38C840015F5AC /* TableViewCell.swift in Sources */,
 				2936FFF327B3979D0015F5AC /* APIStruct.swift in Sources */,
+				2951A61D27C1C39500F62C2C /* RedditParser.swift in Sources */,
 				E65A1A6D27AEEE7B00D5209F /* AppDelegate.swift in Sources */,
+				2951A61F27C1C44100F62C2C /* NSUIColor+Hex.swift in Sources */,
 				E65A1A6F27AEEE7B00D5209F /* SceneDelegate.swift in Sources */,
 				2936FFED27B38D450015F5AC /* DetailViewController.swift in Sources */,
 				2936FFEF27B397110015F5AC /* Data.swift in Sources */,
@@ -396,6 +412,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2951A61927C1C29900F62C2C /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2951A61A27C1C29900F62C2C /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2951A61927C1C29900F62C2C /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E65A1A7527AEEE7B00D5209F /* CoreDataDemo.xcdatamodeld */ = {
